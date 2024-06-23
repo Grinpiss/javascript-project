@@ -74,3 +74,27 @@ function setRandomColors(isInitial) {
   updateColorsHash(colors)
 }
 
+function setTextColor(text, color) {
+  const luminance = chroma(color).luminance()
+  text.style.color = luminance > 0.5 ? 'black' : 'white'
+}
+
+function updateColorsHash(colors = []) {
+  document.location.hash = colors
+    .map((col) => {
+      return col.toString().substring(1)
+    })
+    .join('-')
+}
+
+function getColorsFromHash() {
+  if (document.location.hash.length > 1) {
+    return document.location.hash
+      .substring(1)
+      .split('-')
+      .map((color) => '#' + color)
+  }
+  return []
+}
+
+setRandomColors(true)
