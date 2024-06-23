@@ -8,9 +8,7 @@ body {
   display: flex;
 }
 .col {
-  border: 1px solid black;
   flex: 1;
-  background: darkred;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
